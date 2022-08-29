@@ -5,7 +5,7 @@ const getAnswerPoints = (task, answer) => {
     switch (task.type) {
         case "free":
             for (let i = 0; i < task.answers.length; i++) {
-                if (answer == task.answers[i]) {
+                if (answer.toLowerCase() == task.answers[i].toLowerCase()) {
                     return 1;
                 }
             }
@@ -50,7 +50,7 @@ const answerChecker = async (req, res) => {
 
         const points = getAnswerPoints(task, answer);
         if (points >= 0.5) {
-            res.status(200).json({ isCorrect: true });
+            return res.status(200).json({ isCorrect: true });
         }
         res.status(200).json({ isCorrect: false });
     } catch (err) {
