@@ -14,6 +14,7 @@ const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
 const testRoutes = require('./routes/tests');
 const leaderRoutes = require('./routes/leaderboard');
+const scheduleRoutes = require('./routes/schedules');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/test', testRoutes);
 app.use('/api/leaderboard', leaderRoutes);
+app.use('/schedule', scheduleRoutes);
 // app.get('/', async (req, res) => {
 //     const test = await Test.findById('630542a4c6fad29c9124f57e');
 //     const testPoints = test.tasks.reduce((acc, obj) => acc + obj.points, 0);
